@@ -17,7 +17,7 @@ void vector<T>::PushBack(const T &value) {
 }
 
 template <typename T>
-size_t vector<T>::IndedxOf(const T &value) {
+size_t vector<T>::IndexOf(const T &value) {
     for (size_t index = 0; index < currentSize; index++){
         if (data[index] == value) {
             #if defined(DEBUG_MODE)
@@ -34,7 +34,7 @@ size_t vector<T>::IndedxOf(const T &value) {
 
 template <typename T>
 void vector<T>::Remove(const T &value) {
-    size_t index = this->IndedxOf(value);
+    size_t index = this->IndexOf(value);
     
     for (size_t i = index; i < this->currentSize; i++) 
         data[i] = data[i+1];
@@ -49,11 +49,15 @@ void vector<T>::Remove(size_t index) {
         Serial.println("Index out of range!");
         #endif
     
+    for (size_t i = index; i < this->currentSize; i++) 
+        data[i] = data[i+1];
+     
+    --this->currentSize;
 }
 
 template <typename T>
 void vector<T>::Edit(const T &value, const T &newValue) {
-    size_t index = this->IndedxOf(value);
+    size_t index = this->IndexOf(value);
     data[index] = newValue;
 }
 

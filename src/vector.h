@@ -33,7 +33,7 @@ public:
      * @param value The element to search for.
      * @return size_t The index of the element if found, otherwise -1.
      */
-    size_t IndedxOf(const T &value);
+    size_t IndexOf(const T &value);
 
     /**
      * @brief Removes the first occurrence of the specified element from the vector.
@@ -149,8 +149,8 @@ public:
         const T* ptr;
     };
 
-    const_iterator begin() const { return const_iterator(data); }
-    const_iterator end() const { return const_iterator(data + currentSize); }
+    const_iterator cbegin() const { return const_iterator(data); }
+    const_iterator cend() const { return const_iterator(data + currentSize); }
 
 private:
     T* data;

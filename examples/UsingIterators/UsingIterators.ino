@@ -28,7 +28,7 @@ void setup() {
 
     // Using const iterators to traverse the vector
     Serial.println("Traversing vector with const iterators:");
-    for (vector<String>::const_iterator it = myVector.begin(); it != myVector.end(); ++it) {
+    for (vector<String>::const_iterator it = myVector.cbegin(); it != myVector.cend(); ++it) {
         Serial.println(*it);
     }
 
