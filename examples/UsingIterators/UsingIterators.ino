@@ -1,27 +1,11 @@
 /**
  * @file UsingIterators.ino
  * 
- * @brief example demonstrates how to use iterators to traverse the vector.
+ * @brief Example demonstrates how to use iterators to traverse the vector.
  * 
- * @date: 2024-06-23
- * @author: Aleko Khomasuridze
+ * @date 2024-06-23
+ * @author Aleko Khomasuridze
  */
-
-#include <Arduino.h>
-#include "vector.h"
-
-vector<String> myVector;
-
-void setup() {
-    Serial.begin(115200);
-
-    // Adding elements to the vector
-    myVector.PushBack("Hello");
-    myVector.PushBack("World");
-    myVector.PushBack("Arduino");
-
-    // Using 
-
 
 #include <Arduino.h>
 #include "vector.h"
@@ -46,6 +30,12 @@ void setup() {
     Serial.println("Traversing vector with const iterators:");
     for (vector<String>::const_iterator it = myVector.begin(); it != myVector.end(); ++it) {
         Serial.println(*it);
+    }
+
+    // Using range-based for loop to traverse the vector
+    Serial.println("Traversing vector with range-based for loop:");
+    for (const String& item : myVector) {
+        Serial.println(item);
     }
 }
 
